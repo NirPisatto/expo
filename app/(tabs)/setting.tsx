@@ -6,21 +6,31 @@ import { ExternalLink } from "@/components/ExternalLink";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
+import { useColorScheme } from "@/hooks/useColorScheme";
+import { Link } from "expo-router";
 
 export default function TabTwoScreen() {
+  const colorScheme = useColorScheme();
+
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: "#D0D0D0", dark: "#353636" }}
+      headerBackgroundColor={{ light: "#D0D0D0", dark: "#D0D0D0" }}
       headerImage={
         <Ionicons size={310} name="code-slash" style={styles.headerImage} />
       }
     >
-      <View className="flex-1 items-center justify-center bg-white text-white">
-        <Text className="text-center text-3xl text-white">asdf</Text>
+      <View className="bg-white text-white my-0 py-2">
+        <Text className="text-xl">Setting</Text>
+        <View className="flex flex-col gap-6">
+          <Text>
+            This is a sample app to demonstrate the usage of Expo with
+            TypeScript.
+          </Text>
 
-        <Text className="text-center text-lg text-red">
-          asdfHey there! I Open up App.js to start working on your app!
-        </Text>
+          <Link href="/(auth)" className="text-purple-800 text-xl">
+            Logout
+          </Link>
+        </View>
       </View>
     </ParallaxScrollView>
   );
