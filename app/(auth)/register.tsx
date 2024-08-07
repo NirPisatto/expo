@@ -7,11 +7,18 @@ import { View, Text, ScrollView, Dimensions, Alert, Image } from "react-native";
 import CusButton from "@/components/CusButton";
 import FormField from "@/components/FormField";
 
+type RegisterForm = {
+  email: string;
+  password: string;
+  username: string;
+};
+
 export default function AuthRegisterScreen() {
   const [isSubmitting, setSubmitting] = useState(false);
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<RegisterForm>({
     email: "",
     password: "",
+    username: "",
   });
 
   const submit = async () => {
@@ -41,6 +48,14 @@ export default function AuthRegisterScreen() {
           <Text className="text-2xl font-semibold text-white mt-10 font-psemibold">
             Register with Aora
           </Text>
+
+          <FormField
+            title="Username"
+            value={form.username}
+            handleChangeText={(e) => setForm({ ...form, email: e })}
+            otherStyles="mt-7"
+            placeholder=""
+          />
 
           <FormField
             title="Email"
