@@ -6,8 +6,11 @@ import { View, Text, ScrollView, Dimensions, Alert, Image } from "react-native";
 // import { images } from "../../constants";
 import CusButton from "@/components/CusButton";
 import FormField from "@/components/FormField";
+// import { getCurrentUser, signIn } from "../../lib/appwrite";
+// import { useGlobalContext } from "../../context/GlobalProvider";
 
 export default function AuthRegisterScreen() {
+  // const { setUser, setIsLogged } = useGlobalContext();
   const [isSubmitting, setSubmitting] = useState(false);
   const [form, setForm] = useState({
     email: "",
@@ -21,7 +24,7 @@ export default function AuthRegisterScreen() {
 
     setSubmitting(true);
 
-    // router.replace("/(tabs)");
+    router.replace("/(tabs)");
   };
   return (
     <SafeAreaView className="bg-primary h-full">
@@ -39,7 +42,7 @@ export default function AuthRegisterScreen() {
           />
 
           <Text className="text-2xl font-semibold text-white mt-10 font-psemibold">
-            Register with Aora
+            Login to Aora
           </Text>
 
           <FormField
@@ -60,7 +63,7 @@ export default function AuthRegisterScreen() {
           />
 
           <CusButton
-            title="Register Now"
+            title="Sign In"
             handlePress={submit}
             containerStyles="mt-7"
             isLoading={isSubmitting}
@@ -68,13 +71,13 @@ export default function AuthRegisterScreen() {
 
           <View className="flex justify-center pt-5 flex-row gap-2">
             <Text className="text-lg text-gray-100 font-pregular">
-              Already have an account?
+              Don't have an account?
             </Text>
             <Link
-              href="./login"
+              href="./register"
               className="text-lg font-psemibold text-secondary"
             >
-              Back to Login
+              Signup
             </Link>
           </View>
         </View>
